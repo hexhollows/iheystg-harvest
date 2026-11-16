@@ -24,3 +24,7 @@ label start:
     "What a coincidence{space=0.1}!!!"
 
     jump act_one
+    
+    show adel pose2 smug blush
+
+    a "Hi."

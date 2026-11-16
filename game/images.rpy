@@ -6,23 +6,37 @@ image bg forest four = "/bg/bg forest four.png"
 
 ### CG images
 
-image cg = "cg/cg.png"
+image cg = "/cg/cg.png"
 
 
 ### Adelaine sprites
 
-# pose1
-# pose2
-# pose3
+layeredimage adel:
+    zoom 0.5
 
-# sad
-# shout
-# smile
-# tsun
-# blush
-# frown
-# grin
-# talk
+    group pose:
+        attribute pose1 default:
+            "/fg/a_pose1.png"
+        attribute pose2:
+            "/fg/a_pose2.png"
+    
+    group expr:
+        attribute neutral default:
+            "/fg/a_neutral.png"
+        attribute tsun:
+            "/fg/a_tsun.png"
+        attribute shout:
+            "/fg/a_shout.png"
+        attribute grin:
+            "/fg/a_grin.png"
+        attribute smug:
+            "/fg/a_smug.png"
+        attribute talk:
+            "/fg/a_talk.png"
+
+    attribute blush:
+        "/fg/a_blush.png"
+
 
 
 ### Miruna sprites
