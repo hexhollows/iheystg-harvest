@@ -5,9 +5,6 @@
 define a = Character("Adelaine")
 define m = Character("Miruna")
 
-image a = Placeholder("girl", True, False, "Adelaine Placeholder")
-
-
 transform scale(ratio):
     zoom ratio
 

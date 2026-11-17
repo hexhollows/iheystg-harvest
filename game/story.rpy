@@ -1,7 +1,7 @@
 label act_one:
     
     stop music
-    play music talking
+    play music talking fadein 0.5
 
     scene bg forest four at truecenter, scale(0.48)
 
@@ -11,18 +11,21 @@ label act_one:
 
     a "Where are all my loyal subjects ?"
 
-    show adel pose2 shout at right
+    show adel shout at right
 
     a "Hey! You!"
 
-    show m pose1 talk at left, scale(0.5)
+    show miru talk at left
     show show adel at right
 
     m "Oh, hello!"
 
+    show miru pose2
+
     m "It seems our spaceships have had a … crashing into each other. It seems."
 
     show adel pose2 talk at right
+    show miru -pose2 -talk
 
     a "So ths is your fault, huh?!"
 
@@ -30,30 +33,29 @@ label act_one:
 
     a "You should be very sorry for doing that to my dearest ship. Hmph."
 
-    show m pose1 talk at left, scale(0.5)
+    show miru talk at left
 
     pause 1
 
-    show m pose1 smile at left, scale(0.5)
+    show miru -talk at left
 
     m "My dearest apologies."
 
-    show adel pose1 tsun blush at right
+    show adel -pose2 tsun blush at right
 
     a "You should be."
 
-    show adel pose2 shout at right
+    show adel pose2 shout -blush at right
 
     a "Our plans better not intersect, or you will rue the day you have messed with me!"
 
-    show show adel at right
-
-    show m pose2 confused at left, scale(0.5)
+    show adel -shout at right
+    show miru pose2 confused question at left
 
     m "Plans?"
 
-    show adel pose1 tsun at right
-    play music "mus_006.ogg" volume 0.5
+    show adel -pose2 tsun at right
+    play music "mus_006.ogg" volume 0.5 fadein 0.5
 
     a "Yeah. Plans."
 
@@ -61,17 +63,17 @@ label act_one:
 
     a "AKA, what you are currently ruining right now!"
 
-    show m pose2 confused at left, scale(0.5)
+    show m pose2 confused at left
 
     m "Ruining?"
 
-    show m pose1 talk at left, scale(0.5)
+    show miru talk at left
 
     m "Oh!"
 
     "She looks down to see a small flower she is crushing."
 
-    show m pose1 sad at left, scale(0.5)
+    show miru sad at left
 
     m "Oh dear..."
 
@@ -83,7 +85,7 @@ label act_one:
 
     a "Listen, you! We both know why you're here."
 
-    show m pose2 confused at left, scale(0.5)
+    show m pose2 confused at left
 
     show show adel at right
 
@@ -101,11 +103,11 @@ label act_one:
     
     a "If there's any extraterrestrial being here in the forest that's going to take over the world, it's ME!"
 
-    show m pose1 sad at left, scale(0.5)
+    show miru sad at left
 
     m "Take over the world ?"
 
-    show m pose2 confused at left, scale(0.5)
+    show m pose2 confused at left
 
     m "Whatever do you mean ?"
 
@@ -117,12 +119,12 @@ label act_one:
 
     a "So get outta town!"
 
-    show m pose1 sad at left, scale(0.5)
-    play music "mus_005a.ogg"
+    show miru sad at left
+    play music "mus_005a.ogg" fadein 0.5
 
     m "..."
 
-    show m pose1 talk at left, scale(0.5)
+    show miru talk at left
 
     m "I'm not trying to take over the world."
 
@@ -130,7 +132,7 @@ label act_one:
 
     show adel pose1 shout at right
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
 
     a "I'm not your FRIEND, idiot!!"
 
@@ -140,48 +142,48 @@ label act_one:
 
     show show adel at right
 
-    show m pose2 confused at left, scale(0.5)
+    show m pose2 confused at left
 
     m "Hm ?"
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     m "Sorry, what'd you say ?"
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
 
     show adel pose1 tsun blush at right
 
     a "I said we're enemies."
 
-    show m pose1 talk at left, scale(0.5)
+    show miru talk at left
 
     m "No, we're not."
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
 
     show show adel at right
 
     a "We're not ?"
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     m "Of course not!"
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
 
     m "I do not dislike you."
 
     m "In fact,"
 
-    show m pose1 happy at left, scale(0.5)
-    play music "mus_005b.ogg"
+    show miru happy at left
+    play music "mus_005b.ogg" fadein 0.5
 
     m "I am quite fond of you."
 
     show adel blush at right
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
     
     a "..."
 
@@ -193,11 +195,11 @@ label act_one:
 
     a "Okay fine maybe we aren't enemies."
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     m "YAY!"
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     show adel blush at right
 
@@ -205,13 +207,13 @@ label act_one:
 
     a "..."
 
-    show m pose1 smile at left, scale(0.5)
+    show miru smile at left
 
     show adel talk blush at right
 
     a "...Really ?"
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     m "Yea"
 
@@ -219,12 +221,12 @@ label act_one:
 
     show adel pose2 grin at right
 
-    show m pose1 smile at left, scale(0.5)
-    play music "mus_004.ogg"
+    show miru smile at left
+    play music "mus_004.ogg" fadein 0.2
 
     a "Consider your offer accepted!"
 
-    show m pose1 happy at left, scale(0.5)
+    show miru happy at left
 
     m "Oh, joy! Oh joyous joys! I've never been more Joyful!"
 
