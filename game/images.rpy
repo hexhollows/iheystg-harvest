@@ -12,7 +12,7 @@ image cg = "/cg/cg.png"
 ### Adelaine sprites
 
 layeredimage adel:
-    zoom 0.5
+    zoom 0.7
 
     group pose:
         attribute pose1 default:
@@ -37,16 +37,36 @@ layeredimage adel:
     attribute blush:
         "/fg/a_blush.png"
 
+    attribute question:
+        "/fg/a_question.png"
+
 
 
 ### Miruna sprites
 
-# pose1
-# pose2
+layeredimage miru:
+    zoom 0.7
 
-# happy
-# smile
-# sad
-# talk
-# confused
+    group pose:
+        attribute pose1 default:
+            "/fg/m_pose1.png"
+        attribute pose2:
+            "/fg/m_pose2.png"
 
+    group expr:
+        attribute smile default:
+            "/fg/m_smile.png"
+        attribute happy:
+            "/fg/m_happy.png"
+        attribute sad:
+            "/fg/m_sad.png"
+        attribute confused:
+            "/fg/m_confused.png"
+        attribute talk:
+            "/fg/m_talk.png"
+
+    attribute blush:
+        "/fg/m_blush.png"
+
+    attribute question:
+        "/fg/m_question.png"
