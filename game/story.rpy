@@ -3,20 +3,20 @@ label act_one:
     stop music
     play music talking fadein 0.5
 
-    scene bg forest four at truecenter, scale(0.48)
+    scene bg forest four at truecenter, scale(0.48) with dissolve
 
-    show adel pose2 grin at right
+    show adel pose2 grin at rightcenter with dissolve
 
     a "Hello, Planet Earth! I am here to take you all over!"
 
     a "Where are all my loyal subjects ?"
 
-    show adel shout at right
+    show adel shout
 
     a "Hey! You!"
 
-    show miru talk at left
-    show show adel at right
+    show miru talk at leftcenter with dissolve
+    show adel -shout
 
     m "Oh, hello!"
 
@@ -24,209 +24,210 @@ label act_one:
 
     m "It seems our spaceships have had a … crashing into each other. It seems."
 
-    show adel pose2 talk at right
+    show adel pose2 talk
     show miru -pose2 -talk
 
     a "So ths is your fault, huh?!"
 
-    show adel tsun at right
+    show adel tsun
 
     a "You should be very sorry for doing that to my dearest ship. Hmph."
 
-    show miru talk at left
+    show miru talk
 
     pause 1
 
-    show miru -talk at left
+    show miru -talk
 
     m "My dearest apologies."
 
-    show adel -pose2 tsun blush at right
+    show adel -pose2 tsun blush
 
     a "You should be."
 
-    show adel pose2 shout -blush at right
+    show adel pose2 shout -blush
 
     a "Our plans better not intersect, or you will rue the day you have messed with me!"
 
-    show adel -shout at right
-    show miru pose2 confused question at left
+    show adel -shout
+    show miru pose2 confused question
 
     m "Plans?"
 
-    show adel -pose2 tsun at right
+    show adel -pose2 tsun
     play music "mus_006.ogg" volume 0.5 fadein 0.5
 
     a "Yeah. Plans."
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "AKA, what you are currently ruining right now!"
 
-    show m pose2 confused at left
+    show miru pose2 confused
+    show adel -pose2 -shout
 
     m "Ruining?"
 
-    show miru talk at left
+    show miru talk
 
     m "Oh!"
 
     "She looks down to see a small flower she is crushing."
 
-    show miru sad at left
+    show miru sad
 
     m "Oh dear..."
 
-    show adel shout blush at right
+    show adel shout blush
 
     a "Not that, you idiot!"
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "Listen, you! We both know why you're here."
 
-    show m pose2 confused at left
+    show miru pose2 confused
 
-    show show adel at right
+    show adel
 
     a "We both know you're here to take over the world."
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "Don't even try to deny it!"
 
-    show adel pose1 shout at right
+    show adel pose1 shout
 
     a "And. And!"
 
-    show adel pose2 grin at right
+    show adel pose2 grin
     
     a "If there's any extraterrestrial being here in the forest that's going to take over the world, it's ME!"
 
-    show miru sad at left
+    show miru sad
 
     m "Take over the world ?"
 
-    show m pose2 confused at left
+    show miru pose2 confused
 
     m "Whatever do you mean ?"
 
-    show adel pose1 tsun at right
+    show adel pose1 tsun
 
     a "Oh you know."
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "So get outta town!"
 
-    show miru sad at left
+    show miru sad
     play music "mus_005a.ogg" fadein 0.5
 
     m "..."
 
-    show miru talk at left
+    show miru talk
 
     m "I'm not trying to take over the world."
 
     m "Why do you wish to do so, friend ?"
 
-    show adel pose1 shout at right
+    show adel pose1 shout
 
-    show miru smile at left
+    show miru smile
 
     a "I'm not your FRIEND, idiot!!"
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "We're ENEMIES!"
 
-    show show adel at right
+    show adel
 
-    show m pose2 confused at left
+    show miru pose2 confused
 
     m "Hm ?"
 
-    show miru happy at left
+    show miru happy
 
     m "Sorry, what'd you say ?"
 
-    show miru smile at left
+    show miru pose2 smile
 
-    show adel pose1 tsun blush at right
+    show adel pose1 tsun blush
 
     a "I said we're enemies."
 
-    show miru talk at left
+    show miru talk
 
     m "No, we're not."
 
-    show miru smile at left
+    show miru smile
 
-    show show adel at right
+    show adel
 
     a "We're not ?"
 
-    show miru happy at left
+    show miru happy
 
     m "Of course not!"
 
-    show miru smile at left
+    show miru smile
 
     m "I do not dislike you."
 
     m "In fact,"
 
-    show miru happy at left
+    show miru happy
     play music "mus_005b.ogg" fadein 0.5
 
     m "I am quite fond of you."
 
-    show adel blush at right
+    show adel blush
 
-    show miru smile at left
+    show miru smile
     
     a "..."
 
-    show adel tsun at right
+    show adel tsun
 
     a "Shut up..."
 
-    show adel pose2 shout at right
+    show adel pose2 shout
 
     a "Okay fine maybe we aren't enemies."
 
-    show miru happy at left
+    show miru happy
 
     m "YAY!"
 
-    show miru happy at left
+    show miru happy
 
-    show adel blush at right
+    show adel blush
 
     m "I love you!"
 
     a "..."
 
-    show miru smile at left
+    show miru smile
 
-    show adel talk blush at right
+    show adel talk blush
 
     a "...Really ?"
 
-    show miru happy at left
+    show miru happy
 
     m "Yea"
 
     m "maybe we can rule this world... togethr....."
 
-    show adel pose2 grin at right
+    show adel pose2 grin
 
-    show miru smile at left
+    show miru smile
     play music "mus_004.ogg" fadein 0.2
 
     a "Consider your offer accepted!"
 
-    show miru happy at left
+    show miru happy
 
     m "Oh, joy! Oh joyous joys! I've never been more Joyful!"
 

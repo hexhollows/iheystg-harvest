@@ -2,8 +2,11 @@
 #        Main         #
 #######################
 
-define a = Character("Adelaine")
-define m = Character("Miruna")
+
+
+define a = Character("Adelaine", callback = name_callback, cb_name = "adel")
+define m = Character("Miruna", callback = name_callback, cb_name = "miru")
+define narrator = Character(callback = name_callback, cb_name = None)
 
 transform scale(ratio):
     zoom ratio

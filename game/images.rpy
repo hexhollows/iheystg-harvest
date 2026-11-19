@@ -3,16 +3,15 @@
 image bg explosion = "/bg/bg explosion.png"
 image bg forest four = "/bg/bg forest four.png"
 
-
 ### CG images
 
 image cg = "/cg/cg.png"
 
-
 ### Adelaine sprites
 
-layeredimage adel:
-    zoom 0.7
+layeredimage adelLayers:
+    at sprite_highlight("adel")
+    zoom 0.5
 
     group pose:
         attribute pose1 default:
@@ -41,11 +40,11 @@ layeredimage adel:
         "/fg/a_question.png"
 
 
-
 ### Miruna sprites
 
-layeredimage miru:
-    zoom 0.7
+layeredimage miruLayers:
+    at sprite_highlight("miru")
+    zoom 0.65
 
     group pose:
         attribute pose1 default:
@@ -70,3 +69,13 @@ layeredimage miru:
 
     attribute question:
         "/fg/m_question.png"
+
+
+transform leftcenter:
+    xalign 0.3 yalign 1.0
+
+transform rightcenter:
+    xalign 0.7 yalign 1.0
+
+image adel = LayeredImageProxy("adelLayers")
+image miru = LayeredImageProxy("miruLayers")
