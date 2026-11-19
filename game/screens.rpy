@@ -20,6 +20,7 @@ style input:
 style hyperlink_text:
     properties gui.text_properties("hyperlink", accent=True)
     hover_underline True
+    font "IHATCS__.ttf"
 
 style gui_text:
     properties gui.text_properties("interface")
@@ -28,8 +29,9 @@ style gui_text:
 style button:
     properties gui.button_properties("button")
 
-style button_text is gui_text:
+style button_text:
     properties gui.text_properties("button")
+    font "IHATCS__.ttf"
     yalign 0.5
 
 
@@ -420,6 +422,7 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0):
 
     if main_menu:
         add gui.main_menu_background
+        add gui.game_menu_background
     else:
         add gui.game_menu_background
 
@@ -523,13 +526,14 @@ style game_menu_side:
     spacing 15
 
 style game_menu_label:
-    xpos 75
+    xpos 550
     ysize 180
 
 style game_menu_label_text:
-    size 75
+    size 125
     color gui.accent_color
-    yalign 0.5
+    yalign 0.7
+    outlines [(7, "#004446", 0, 0)]
 
 style return_button:
     xpos gui.navigation_xpos
@@ -569,7 +573,8 @@ screen about():
 
 style about_label is gui_label
 style about_label_text is gui_label_text
-style about_text is gui_text
+style about_text:
+    font "IHATCS__.ttf"
 
 style about_label_text:
     size gui.label_text_size
@@ -611,23 +616,23 @@ screen file_slots(title):
             order_reverse True
 
             ## The page name, which can be edited by clicking on a button.
-            button:
-                style "page_label"
+            # button:
+            #     style "page_label"
 
-                key_events True
-                xalign 0.5
-                action page_name_value.Toggle()
+            #     key_events False
+            #     xalign 0.5
+            #     action page_name_value.Toggle()
 
-                input:
-                    style "page_label_text"
-                    value page_name_value
+            #     input:
+            #         style "page_label_text"
+            #         value page_name_value
 
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
 
                 xalign 0.5
-                yalign 0.5
+                yalign 0.2
 
                 spacing gui.slot_spacing
 
@@ -701,7 +706,6 @@ style slot_name_text is slot_button_text
 
 style page_label:
     xpadding 75
-    ypadding 5
     xalign 0.5
 
 style page_label_text:
@@ -842,6 +846,9 @@ style pref_label:
 
 style pref_label_text:
     yalign 1.0
+    font "fonts/Starborn.ttf"
+    outlines [(3, "#004446", 0, 0)]
+    size 45
 
 style pref_vbox:
     xsize 338
@@ -1113,7 +1120,8 @@ style help_button is gui_button
 style help_button_text is gui_button_text
 style help_label is gui_label
 style help_label_text is gui_label_text
-style help_text is gui_text
+style help_text:
+    font "IHATCS__.ttf"
 
 style help_button:
     properties gui.button_properties("help_button")
@@ -1130,6 +1138,7 @@ style help_label_text:
     size gui.text_size
     xalign 1.0
     textalign 1.0
+    font "IHATCS__.ttf"
 
 
 
