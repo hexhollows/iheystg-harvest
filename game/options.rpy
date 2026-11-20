@@ -4,6 +4,15 @@
 ## them. Lines beginning with a single '#' mark are commented-out code, and you
 ## may want to uncomment them when appropriate.
 
+## lock window resize
+init python:
+    config.gl_resize = False
+
+## controls
+init python:
+    config.keymap['dismiss'].remove('K_SPACE')
+    config.keymap['hide_windows'].append('K_SPACE')
+    config.keymap['rollback'].remove('mousedown_4')
 
 ## Basics ######################################################################
 
@@ -30,8 +39,7 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-Evil Alien Yuri. 
-""")
+Evil Alien Yuri.""")
 
 
 ## A short name for the game used for executables and directories in the built
@@ -121,7 +129,7 @@ define config.window_hide_transition = Dissolve(.2)
 ## Controls the default text speed. The default, 0, is infinite, while any other
 ## number is the number of characters per second to type out.
 
-default preferences.text_cps = 0
+default preferences.text_cps = 20
 
 
 ## The default auto-forward delay. Larger numbers lead to longer waits, with 0

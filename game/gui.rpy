@@ -42,7 +42,7 @@ define gui.hover_color = '#66e0c1'
 define gui.selected_color = '#ffffff'
 
 ## The color used for a text button when it cannot be selected.
-define gui.insensitive_color = '#8888887f'
+define gui.insensitive_color = '#cdcdcd'
 
 ## Colors used for the portions of bars that are not filled in. These are not
 ## used directly, but are used when re-generating bar image files.
@@ -224,7 +224,7 @@ define gui.choice_button_text_insensitive_color = '#8888887f'
 
 ## The save slot button.
 define gui.slot_button_width = 414
-define gui.slot_button_height = 309
+define gui.slot_button_height = 245
 define gui.slot_button_borders = Borders(15, 15, 15, 15)
 define gui.slot_button_text_size = 21
 define gui.slot_button_text_xalign = 0.5
@@ -272,7 +272,7 @@ define gui.pref_button_spacing = 0
 define gui.page_spacing = 0
 
 ## The spacing between file slots.
-define gui.slot_spacing = 15
+define gui.slot_spacing = 45
 
 ## The position of the main menu text.
 define gui.main_menu_text_xalign = 1.0
@@ -287,7 +287,7 @@ define gui.main_menu_text_xalign = 1.0
 define gui.frame_borders = Borders(6, 6, 6, 6)
 
 ## The frame that is used as part of the confirm screen.
-define gui.confirm_frame_borders = Borders(60, 60, 60, 60)
+define gui.confirm_frame_borders = Borders(240, 240, 240, 240)
 
 ## The frame that is used as part of the skip screen.
 define gui.skip_frame_borders = Borders(24, 8, 75, 8)
@@ -341,10 +341,10 @@ define config.history_length = 250
 
 ## The height of a history screen entry, or None to make the height variable at
 ## the cost of performance.
-define gui.history_height = 210
+define gui.history_height = None
 
 ## Additional space to add between history screen entries.
-define gui.history_spacing = 0
+define gui.history_spacing = 12
 
 ## The position, width, and alignment of the label giving the name of the
 ## speaking character.
@@ -487,3 +487,4 @@ init python:
 
 style hyperlink_text:
     font gui.interface_text_font   
+

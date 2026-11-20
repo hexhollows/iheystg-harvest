@@ -110,6 +110,7 @@ screen say(who, what):
                 text who id "who"
 
         text what id "what"
+    key "mousedown_4" action ShowMenu("history")
 
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
@@ -128,8 +129,7 @@ style say_thought is say_dialogue
 
 style namebox is default
 style namebox_label is say_label
-
-
+    
 style window:
     xalign 0.5
     xfill True
@@ -137,6 +137,8 @@ style window:
     ysize gui.textbox_height
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
+
+    
 
 style namebox:
     xpos gui.name_xpos
@@ -152,6 +154,8 @@ style say_label:
     properties gui.text_properties("name", accent=True)
     xalign gui.name_xalign
     yalign 0.5
+    outlines [(3, "#004446", 0, 0)]
+    size 45
 
 style say_dialogue:
     properties gui.text_properties("dialogue")
@@ -322,10 +326,10 @@ screen navigation():
 
         textbutton _("About") action ShowMenu("about")
 
-        if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
+        # if renpy.variant("pc") or (renpy.variant("web") and not renpy.variant("mobile")):
 
-            ## Help isn't necessary or relevant to mobile devices.
-            textbutton _("Help") action ShowMenu("help")
+        #     ## Help isn't necessary or relevant to mobile devices.
+        #     textbutton _("Help") action ShowMenu("help")
 
         if renpy.variant("pc"):
 
@@ -560,10 +564,6 @@ screen about():
         style_prefix "about"
 
         vbox:
-
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
-
             ## gui.about is usually set in options.rpy.
             if gui.about:
                 text "[gui.about!t]\n"
@@ -577,7 +577,9 @@ style about_text:
     font "IHATCS__.ttf"
 
 style about_label_text:
-    size gui.label_text_size
+    # size gui.label_text_size
+    outlines [(5, "#004446", 0, 0)]
+    size 50
 
 
 ## Load and Save screens #######################################################
@@ -630,10 +632,9 @@ screen file_slots(title):
             ## The grid of file slots.
             grid gui.file_slot_cols gui.file_slot_rows:
                 style_prefix "slot"
-
                 xalign 0.5
-                yalign 0.2
-
+                yalign 0.15
+                
                 spacing gui.slot_spacing
 
                 for i in range(gui.file_slot_cols * gui.file_slot_rows):
@@ -642,25 +643,29 @@ screen file_slots(title):
 
                     button:
                         action FileAction(slot)
-
+                        
                         has vbox
 
-                        add FileScreenshot(slot) xalign 0.5
+                        add FileScreenshot(slot) xalign 0.5 yalign 0.5
+                            
+                        frame:
+                            background color("#1b453977")
+                            ysize 30
+                            ypos -216
+                            text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
+                                style "slot_time_text"
 
-                        text FileTime(slot, format=_("{#file_time}%A, %B %d %Y, %H:%M"), empty=_("empty slot")):
-                            style "slot_time_text"
+                            text FileSaveName(slot):
+                                style "slot_name_text"
 
-                        text FileSaveName(slot):
-                            style "slot_name_text"
-
-                        key "save_delete" action FileDelete(slot)
+                            key "save_delete" action FileDelete(slot)
 
             ## Buttons to access other pages.
             vbox:
                 style_prefix "page"
 
                 xalign 0.5
-                yalign 1.0
+                yalign 0.8
 
                 hbox:
                     xalign 0.5
@@ -683,15 +688,15 @@ screen file_slots(title):
                     textbutton _(">") action FilePageNext()
                     key "save_page_next" action FilePageNext()
 
-                if config.has_sync:
-                    if CurrentScreenName() == "save":
-                        textbutton _("Upload Sync"):
-                            action UploadSync()
-                            xalign 0.5
-                    else:
-                        textbutton _("Download Sync"):
-                            action DownloadSync()
-                            xalign 0.5
+                # if config.has_sync:
+                #     if CurrentScreenName() == "save":
+                #         textbutton _("Upload Sync"):
+                #             action UploadSync()
+                #             xalign 0.5
+                #     else:
+                #         textbutton _("Download Sync"):
+                #             action DownloadSync()
+                #             xalign 0.5
 
 
 style page_label is gui_label
@@ -721,9 +726,13 @@ style page_button_text:
 
 style slot_button:
     properties gui.button_properties("slot_button")
+    idle_background Transform("gui/button/slot_idle_background.png", blend="add")
+    hover_background Transform("gui/button/slot_hover_background.png", blend="add")
 
 style slot_button_text:
     properties gui.text_properties("slot_button")
+    size 18
+    text_align 0.0
 
 
 ## Preferences screen ##########################################################
@@ -748,9 +757,9 @@ screen preferences():
 
                     vbox:
                         style_prefix "radio"
-                        label _("Display")
-                        textbutton _("Window") action Preference("display", "window")
-                        textbutton _("Fullscreen") action Preference("display", "fullscreen")
+                        label _("Fullscreen")
+                        textbutton _("Disabled") action Preference("display", "any window")
+                        textbutton _("Enabled") action Preference("display", "fullscreen")
 
                 vbox:
                     style_prefix "check"
@@ -758,6 +767,13 @@ screen preferences():
                     textbutton _("Unseen Text") action Preference("skip", "toggle")
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
+
+                vbox:
+                    style_prefix "radio"
+                    label _("Window Size")
+                    textbutton _("1920x1080") action Preference("display", "window")
+                    textbutton _("1600x900") action Preference("display", 0.6944)
+                    textbutton _("1280x720") action Preference("display", 0.4444)
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.
@@ -812,6 +828,12 @@ screen preferences():
                         textbutton _("Mute All"):
                             action Preference("all mute", "toggle")
                             style "mute_all_button"
+                
+                vbox:
+                    null height 60
+                    textbutton _("Reset all settings to default"):
+                            action Preference("reset")
+                            style "mute_all_button"
 
 
 style pref_label is gui_label
@@ -843,12 +865,14 @@ style mute_all_button_text is check_button_text
 style pref_label:
     top_margin gui.pref_spacing
     bottom_margin 3
+    right_margin 40
 
 style pref_label_text:
     yalign 1.0
     font "fonts/Starborn.ttf"
     outlines [(3, "#004446", 0, 0)]
     size 45
+    xsize 500
 
 style pref_vbox:
     xsize 338
@@ -899,6 +923,7 @@ style slider_vbox:
 screen history():
 
     tag menu
+    key "mouseup_4" action Return()
 
     ## Avoid predicting this screen, as it can be very large.
     predict False
@@ -931,7 +956,7 @@ screen history():
                     substitute False
 
         if not _history_list:
-            label _("The dialogue history is empty.")
+            pass
 
 
 ## This determines what tags are allowed to be displayed on the history screen.
@@ -961,6 +986,9 @@ style history_name:
 style history_name_text:
     min_width gui.history_name_width
     textalign gui.history_name_xalign
+    font "fonts/Starborn.ttf"
+    outlines [(3, "#004446", 0, 0)]
+    size 30
 
 style history_text:
     xpos gui.history_text_xpos
@@ -970,6 +998,7 @@ style history_text:
     min_width gui.history_text_width
     textalign gui.history_text_xalign
     layout ("subtitle" if gui.history_text_xalign else "tex")
+    font gui.text_font
 
 style history_label:
     xfill True
@@ -1128,7 +1157,12 @@ style help_button:
     xmargin 12
 
 style help_button_text:
-    properties gui.text_properties("help_button")
+    font "fonts/Starborn.ttf"
+    outlines [(3, "#004446", 0, 0)]
+    size 45
+    xsize 500
+    color '#00cc99'
+    hover_color '#66e0c1'
 
 style help_label:
     xsize 375
@@ -1139,6 +1173,7 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
     font "IHATCS__.ttf"
+    italic True
 
 
 
@@ -1202,6 +1237,7 @@ style confirm_frame:
 style confirm_prompt_text:
     textalign 0.5
     layout "subtitle"
+    font "fonts/IHATCS__.ttf"
 
 style confirm_button:
     properties gui.button_properties("confirm_button")
