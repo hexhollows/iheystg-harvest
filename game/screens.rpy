@@ -25,7 +25,6 @@ style hyperlink_text:
 style gui_text:
     properties gui.text_properties("interface")
 
-
 style button:
     properties gui.button_properties("button")
 
@@ -403,6 +402,7 @@ style main_menu_vbox:
 
 style main_menu_text:
     properties gui.text_properties("main_menu", accent=True)
+    font "fonts/Stars-Regular.ttf"
 
 style main_menu_title:
     properties gui.text_properties("title")
@@ -768,12 +768,13 @@ screen preferences():
                     textbutton _("After Choices") action Preference("after choices", "toggle")
                     textbutton _("Transitions") action InvertSelected(Preference("transitions", "toggle"))
 
-                vbox:
-                    style_prefix "radio"
-                    label _("Window Size")
-                    textbutton _("1920x1080") action Preference("display", "window")
-                    textbutton _("1600x900") action Preference("display", 0.6944)
-                    textbutton _("1280x720") action Preference("display", 0.4444)
+                if renpy.variant("pc") or renpy.variant("web"):
+                    vbox:
+                        style_prefix "radio"
+                        label _("Window Size")
+                        textbutton _("1920x1080") action Preference("display", "window")
+                        textbutton _("1600x900") action Preference("display", 0.6944)
+                        textbutton _("1280x720") action Preference("display", 0.4444)
 
                 ## Additional vboxes of type "radio_pref" or "check_pref" can be
                 ## added here, to add additional creator-defined preferences.

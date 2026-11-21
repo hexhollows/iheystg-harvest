@@ -63,7 +63,7 @@ define gui.text_font = "IHATCS__.TTF"
 define gui.name_text_font = "Starborn.ttf"
 
 ## The font used for out-of-game text.
-define gui.interface_text_font = "Stars-edited Mac.ttf"
+define gui.interface_text_font = "IHATCS__.ttf"
 
 ## The size of normal dialogue text.
 define gui.text_size = 40
